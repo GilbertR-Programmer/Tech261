@@ -8,7 +8,7 @@ public class Program {
 
     }
 
-    private static String getGreeting(int timeOfDay) {
+    public static String getGreeting(int timeOfDay) {
         String greeting;
         if (timeOfDay >= 5 && timeOfDay <= 12)
         {
