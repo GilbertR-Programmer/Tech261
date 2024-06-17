@@ -16,13 +16,13 @@ public class Program {
             return "invalidData";
         }
         String greeting;
-        if (timeOfDay >= 5 && timeOfDay <= 11)
-        {
-            greeting = "Good morning!";
-        }
-        else if (timeOfDay >= 12 && timeOfDay <= 18)
-        {
-            greeting = "Good afternoon!";
+        if (timeOfDay >= 5 && timeOfDay <= 18){
+            if (timeOfDay <= 11){
+                greeting = "Good morning!";
+            }
+            else {
+                greeting = "Good afternoon!";
+            }
         }
         else
         {
