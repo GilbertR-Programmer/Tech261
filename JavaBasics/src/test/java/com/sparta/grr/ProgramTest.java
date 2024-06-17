@@ -24,6 +24,15 @@ public class ProgramTest {
     }
 
     @Test
+    @DisplayName("Given a time of 24, then the greeting should be Good evening!")
+    void checkThat24GivesGoodEvening(){
+        int time = 24;
+        String expectedGreeting = "Good evening!";
+        String actualGreeting = Program.getGreeting(time);
+        Assertions.assertEquals(expectedGreeting,actualGreeting);
+    }
+
+    @Test
     @DisplayName("Given a time of 17, then the greeting should be Good afternoon!")
     void checkThat17GivesGoodAfternoon(){
         int time = 17;
@@ -46,6 +55,41 @@ public class ProgramTest {
     void checkThat8GivesGoodMorning(){
         int time = 8;
         String expectedGreeting = "Good morning!";
+        String actualGreeting = Program.getGreeting(time);
+        Assertions.assertEquals(expectedGreeting,actualGreeting);
+    }
+    @Test
+    @DisplayName("Given a time of 5, then the greeting should be Good morning!")
+    void checkThat5GivesGoodMorning(){
+        int time = 5;
+        String expectedGreeting = "Good morning!";
+        String actualGreeting = Program.getGreeting(time);
+        Assertions.assertEquals(expectedGreeting,actualGreeting);
+    }
+
+    @Test
+    @DisplayName("Given a time of 11, then the greeting should be Good morning!")
+    void checkThat11GivesGoodMorning(){
+        int time = 11;
+        String expectedGreeting = "Good morning!";
+        String actualGreeting = Program.getGreeting(time);
+        Assertions.assertEquals(expectedGreeting,actualGreeting);
+    }
+
+    @Test
+    @DisplayName("Given a time of 18, then the greeting should be Good afternoon!")
+    void checkThat18GivesGoodAfternoon(){
+        int time = 18;
+        String expectedGreeting = "Good afternoon!";
+        String actualGreeting = Program.getGreeting(time);
+        Assertions.assertEquals(expectedGreeting,actualGreeting);
+    }
+
+    @Test
+    @DisplayName("Given a time of 1, then the greeting should be Good evening!")
+    void checkThat1GivesGoodMorning(){
+        int time = 1;
+        String expectedGreeting = "Good evening!";
         String actualGreeting = Program.getGreeting(time);
         Assertions.assertEquals(expectedGreeting,actualGreeting);
     }
