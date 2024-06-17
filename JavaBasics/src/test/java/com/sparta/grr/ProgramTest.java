@@ -5,9 +5,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+
 import javax.lang.model.type.ErrorType;
+import java.util.Random;
 
 public class ProgramTest {
+
+    //here we define a random for generating test data
+    private Random rng = new Random();
 
     @Test
     @DisplayName("Given a time of 21, then the greeting should be Good evening!")
@@ -55,4 +60,12 @@ public class ProgramTest {
                 "Expected getGreeting to throw error, but it didn't"
         );
     }
+
+    @Test
+    @DisplayName("Given a random valid (1-24) time, then text should be returned")
+    void checkThatValidRandomReturnsText(){
+        int time = rng.nextInt(1,25);
+        Assertions.assertFalse(Program.getGreeting(time).isBlank());
+    }
+
 }
