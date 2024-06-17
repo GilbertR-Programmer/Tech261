@@ -12,6 +12,9 @@ public class Program {
     }
 
     public static String getGreeting(int timeOfDay) {
+        if (!isValidData(timeOfDay)){
+            return "invalidData";
+        }
         String greeting;
         if (timeOfDay >= 5 && timeOfDay <= 11)
         {
@@ -26,5 +29,9 @@ public class Program {
             greeting = "Good evening!";
         }
         return greeting;
+    }
+
+    private static boolean isValidData(int timeOfDay) {
+        return timeOfDay > 0 && timeOfDay <= 24;
     }
 }

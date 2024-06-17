@@ -6,7 +6,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
-import javax.lang.model.type.ErrorType;
 import java.util.Random;
 
 public class ProgramTest {
@@ -95,14 +94,12 @@ public class ProgramTest {
     }
 
     @Test
-    @DisplayName("Given a time of -1, then an error should be thrown")
-    void checkThatNegative1ThrowsError(){
+    @DisplayName("Given a time of -1, then invalidData should be returned")
+    void checkThatNegative1IsDetectedInvalid(){
         int time = -1;
-        Assertions.assertThrows(
-                Exception.class,
-                () -> Program.getGreeting(time),
-                "Expected getGreeting to throw error, but it didn't"
-        );
+        String expectedGreeting = "invalidData";
+        String actualGreeting = Program.getGreeting(time);
+        Assertions.assertEquals(expectedGreeting,actualGreeting);
     }
 
     @Test
