@@ -5,9 +5,6 @@ public class ArrayToInt {
         if(arrayOfInts.length < 1){
             return 0;
         }
-        if(arrayOfInts.length == 1){
-            return arrayOfInts[0];
-        }
         StringBuilder builder = new StringBuilder();
         for (int num : arrayOfInts){
             builder.append(num);
