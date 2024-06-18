@@ -2,8 +2,6 @@ package com.sparta.grr;
 
 public class Program {
 
-
-
     public static void main(String[] args)
     {
         int timeOfDay = 21;
