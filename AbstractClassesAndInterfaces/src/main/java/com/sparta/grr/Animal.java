@@ -36,4 +36,8 @@ public class Animal {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public void play(){
+        System.out.println(name + " wants to play");
+    }
 }
