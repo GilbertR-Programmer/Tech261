@@ -7,5 +7,6 @@ public class App {
 
         max.play();
         cindy.play();
+        max.play("John");
     }
 }
