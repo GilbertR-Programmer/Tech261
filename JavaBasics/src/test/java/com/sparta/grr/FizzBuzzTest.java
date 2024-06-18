@@ -4,9 +4,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.*;
+
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Named.named;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class FizzBuzzTest {
     // Print numbers in order
@@ -46,11 +49,14 @@ public class FizzBuzzTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {3, 6, 9})
+    @CsvSource({
+            "3, Fizz",
+            "6, Fizz",
+            "9, Fizz"
+    })
     @DisplayName("Given a multiple of 3 as input print Fizz")
-    void givenAMultipleOfThreeFizzBuzzThenReturnsFizz(int input){
+    void givenAMultipleOfThreeFizzBuzzThenReturnsFizz(int input, String expectedOutput){
         // Arrange
-        String expectedOutput = "Fizz";
 
         // Act
         String actualOutput = FizzBuzz.getFizzBuzzOf(input);
@@ -60,11 +66,14 @@ public class FizzBuzzTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {5, 10, 25})
-    @DisplayName("Given a multiple of 5 as input print Fizz")
-    void givenAMultipleOfFiveFizzBuzzThenReturnsBuzz(int input){
+    @CsvSource({
+            "5, Buzz",
+            "10, Buzz",
+            "20, Buzz"
+    })
+    @DisplayName("Given a multiple of 5 as input print Buzz")
+    void givenAMultipleOfFiveFizzBuzzThenReturnsBuzz(int input, String expectedOutput){
         // Arrange
-        String expectedOutput = "Buzz";
 
         // Act
         String actualOutput = FizzBuzz.getFizzBuzzOf(input);
@@ -74,16 +83,23 @@ public class FizzBuzzTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {15, 30})
+    @MethodSource("multipleOfBothArguments")
     @DisplayName("Given a multiple of 3 and 5 as input print FizzBuzz")
-    void givenAMultipleOfFiveAndThreeFizzBuzzThenReturnsFizzBuzz(int input){
+    void givenAMultipleOfFiveAndThreeFizzBuzzThenReturnsFizzBuzz(int input, String expectedOutput){
         // Arrange
-        String expectedOutput = "FizzBuzz";
 
         // Act
         String actualOutput = FizzBuzz.getFizzBuzzOf(input);
 
         // Assert
         Assertions.assertEquals(expectedOutput,actualOutput);
+    }
+
+    static Stream<Arguments> multipleOfBothArguments() {
+        return Stream.of(
+                arguments("15","FizzBuzz"),
+                arguments("30","FizzBuzz"),
+                arguments("60","FizzBuzz")
+        );
     }
 }
