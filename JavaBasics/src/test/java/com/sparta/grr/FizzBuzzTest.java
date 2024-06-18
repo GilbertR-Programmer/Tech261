@@ -95,11 +95,12 @@ public class FizzBuzzTest {
         Assertions.assertEquals(expectedOutput,actualOutput);
     }
 
+    //worth noting that using MethodSource is less efficient than csv in this case
     static Stream<Arguments> multipleOfBothArguments() {
         return Stream.of(
-                arguments("15","FizzBuzz"),
-                arguments("30","FizzBuzz"),
-                arguments("60","FizzBuzz")
+                arguments(15,"FizzBuzz"),
+                arguments(30,"FizzBuzz"),
+                arguments(60,"FizzBuzz")
         );
     }
 }
