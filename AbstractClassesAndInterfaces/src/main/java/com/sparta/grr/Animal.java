@@ -2,7 +2,7 @@ package com.sparta.grr;
 
 //abstract classes deal with state and behaviour
 //what something is and what it can do
-public class Animal {
+public abstract class Animal {
     private String name;
     private String breed;
     private int age;
@@ -40,4 +40,6 @@ public class Animal {
     public void play(){
         System.out.println(name + " wants to play");
     }
+
+    public abstract void eat();
 }
