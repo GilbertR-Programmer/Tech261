@@ -7,14 +7,18 @@ public class ArrayToInt {
         }
         StringBuilder builder = new StringBuilder();
         for (int num : arrayOfInts){
-            if(num < 0){
-                num *= -1;
-            }
+            num = getPositiveOf(num);
             builder.append(num);
         }
         return Integer.parseInt(builder.toString());
 
     }
 
+    private static int getPositiveOf(int number){
+        if(number < 0){
+            number *= -1;
+        }
+        return number;
+    }
 
 }
