@@ -60,6 +60,19 @@ public class ArrayToIntTest {
 
     }
 
+    @Test
+    @DisplayName("Given an array of ints[] containing negatives return an int that treated them as positives")
+    void givenArrayBeginingWithNegativeIntsReturnIntTreatingThemAsPositives(){
+        //Arrange
+        int expectedOutput = 3496;
+        int[] inputs = new int[]{34,-9,6};
+        //Act
+        int actualOutput = ArrayToInt.getAsInt(inputs);
+        //Assert
+        Assertions.assertEquals(expectedOutput,actualOutput);
+
+    }
+
 
 
 }

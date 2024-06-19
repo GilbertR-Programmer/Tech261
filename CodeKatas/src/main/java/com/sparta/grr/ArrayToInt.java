@@ -7,6 +7,9 @@ public class ArrayToInt {
         }
         StringBuilder builder = new StringBuilder();
         for (int num : arrayOfInts){
+            if(num < 0){
+                num *= -1;
+            }
             builder.append(num);
         }
         return Integer.parseInt(builder.toString());
