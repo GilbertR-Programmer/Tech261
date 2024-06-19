@@ -16,4 +16,18 @@ public class Cat extends Animal{
         System.out.println("Cat eats Cat food");
     }
 
+    public void climb(){
+        System.out.println("Cat is climbing");
+    }
+
+    @Override
+    public void drink() {
+    int drinkMax = Drinkable.max;
+    Drinkable.doStuff();
+    }
+
+    @Override
+    public String goToSleep() {
+        return "";
+    }
 }
