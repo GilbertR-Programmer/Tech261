@@ -14,5 +14,7 @@ public class App {
 
         System.out.println(spartanOne.equals(spartanThree));
         System.out.println(spartanThree.hashCode());
+
+        System.out.println(spartanOne.equals(null));
     }
 }
