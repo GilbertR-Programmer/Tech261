@@ -11,7 +11,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 public class FindTripletTest {
-    //    Take in an array of Ints and return a boolean
+    //    Take in an array of ints and return a boolean
     //    Return true when three ints in a row match
     //    Return False in any other case
     //    Should return false if null is input or an empty or less than 3 array is input

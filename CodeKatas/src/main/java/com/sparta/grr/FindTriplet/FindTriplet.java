@@ -7,8 +7,8 @@ public class FindTriplet {
         }
 
         int matchCount = 0;
-        for(int i = 1; i < numberArray.length; i++){
-            if(numberArray[i] == numberArray[i-1]){
+        for(int element = 1; element < numberArray.length; element++){
+            if(numberArray[element] == numberArray[element-1]){
                 matchCount++;
                 if(matchCount == 2){
                     return true;
