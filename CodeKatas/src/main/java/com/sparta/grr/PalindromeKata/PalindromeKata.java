@@ -33,9 +33,10 @@ public class PalindromeKata {
                 }
             }
         }
-        return palindromes.toArray(new String[palindromes.size()]);
+        return palindromes.toArray(new String[0]);
     }
 
+    //TODO : REMOVE GARBAGE DUPLICATES HERE
     private static String[] getListOfWordsIn(String sentence){
         return sentence.replaceAll("[^a-zA-Z ]","").toLowerCase().split(" ");
     }
@@ -46,8 +47,5 @@ public class PalindromeKata {
 
 }
 
-
-
-//been advised to break this up a good bit
 
 
