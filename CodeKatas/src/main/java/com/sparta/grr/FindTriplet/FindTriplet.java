@@ -1,6 +1,7 @@
 package com.sparta.grr.FindTriplet;
 
 public class FindTriplet {
+
     public static boolean containsTriplet(int[] numberArray){
         if(isNull(numberArray)){
             return false;
