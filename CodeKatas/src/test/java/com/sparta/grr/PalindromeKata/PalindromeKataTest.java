@@ -198,6 +198,26 @@ public class PalindromeKataTest {
         );
     }
 
+    @ParameterizedTest
+    @MethodSource("sentenceReturnsMultiplePalindromeFromMatchingCase")
+    @DisplayName("Given a sentence find and return it's largest palindrome(s) but not duplicates with multiple longest")
+    void givenStringSentenceWithTwoPalindromesMatchingReturnTwo(String input, String[] expectedOutput){
+        //Arrange
+
+        //Act
+        String[] actualOutput = PalindromeKata.getPalindromes(input);
+        //Assert
+        Assertions.assertArrayEquals(expectedOutput,actualOutput);
+    }
+
+    static Stream<Arguments> sentenceReturnsMultiplePalindromeFromMatchingCase() {
+        return Stream.of(
+                Arguments.arguments("eooe soos driver soos ",new String[]{"eooe","soos"}),
+                Arguments.arguments("carolorac darolorad driver carolorac calos snans",new String[]{"carolorac","darolorad"}),
+                Arguments.arguments("driver foof foof dood",new String[]{"foof","dood"})
+        );
+    }
+
     @Test
     @DisplayName("Given a null return an empty array")
     void givenEmptyStringReturnEmptyArray(){

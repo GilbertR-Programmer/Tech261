@@ -3,7 +3,7 @@ package com.sparta.grr.PalindromeKata;
 import java.util.*;
 
 public class PalindromeKata {
-
+//TODO : MAKE MIN PALINDROME LENGTH A CONSTANT
     public static boolean isPalindrome(String possiblePalindrome){
         if(!isNull(possiblePalindrome) && possiblePalindrome.length() > 2){
             possiblePalindrome = possiblePalindrome.toLowerCase();
@@ -19,26 +19,27 @@ public class PalindromeKata {
         if(isNull(possiblePalindromeSentence) || possiblePalindromeSentence.isEmpty()){
             return new String[]{};
         }
-
         List<String> palindromes = new ArrayList<>();
-        for(String word : getListOfWordsIn(possiblePalindromeSentence)){
+        for(String word : getListOfUniqueWordsIn(possiblePalindromeSentence)){
             if(isPalindrome(word)){
                 if(palindromes.isEmpty()){
                     palindromes.add(word);
                 }else if(palindromes.getFirst().length() < word.length()){
                     palindromes.clear();
                     palindromes.add(word);
-                } else if(palindromes.getFirst().length() == word.length() && !palindromes.getFirst().equals(word)){
+                } else if(palindromes.getFirst().length() == word.length()){
                     palindromes.add(word);
                 }
             }
         }
         return palindromes.toArray(new String[0]);
     }
+    
 
-    //TODO : REMOVE GARBAGE DUPLICATES HERE
-    private static String[] getListOfWordsIn(String sentence){
-        return sentence.replaceAll("[^a-zA-Z ]","").toLowerCase().split(" ");
+    private static String[] getListOfUniqueWordsIn(String sentence){
+        String[] unFilteredsentence = sentence.replaceAll("[^a-zA-Z ]","").toLowerCase().split(" ");
+        Set<String> remover = new LinkedHashSet<>(List.of(unFilteredsentence));
+        return remover.toArray(new String[0]);
     }
 
     private static boolean isNull(String toBeChecked){
