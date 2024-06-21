@@ -3,9 +3,11 @@ package com.sparta.grr.PalindromeKata;
 import java.util.*;
 
 public class PalindromeKata {
-//TODO : MAKE MIN PALINDROME LENGTH A CONSTANT
+
+    private static final int MINIMUM_PALINDROME_LENGTH = 3;
+
     public static boolean isPalindrome(String possiblePalindrome){
-        if(!isNull(possiblePalindrome) && possiblePalindrome.length() > 2){
+        if(!isNull(possiblePalindrome) && !(possiblePalindrome.length() < MINIMUM_PALINDROME_LENGTH)){
             possiblePalindrome = possiblePalindrome.toLowerCase();
             StringBuilder builder = new StringBuilder(possiblePalindrome);
             return possiblePalindrome.contentEquals(builder.reverse());
@@ -37,8 +39,8 @@ public class PalindromeKata {
     
 
     private static String[] getListOfUniqueWordsIn(String sentence){
-        String[] unFilteredsentence = sentence.replaceAll("[^a-zA-Z ]","").toLowerCase().split(" ");
-        Set<String> remover = new LinkedHashSet<>(List.of(unFilteredsentence));
+        String[] unFilteredSentence = sentence.replaceAll("[^a-zA-Z ]","").toLowerCase().split(" ");
+        Set<String> remover = new LinkedHashSet<>(List.of(unFilteredSentence));
         return remover.toArray(new String[0]);
     }
 
