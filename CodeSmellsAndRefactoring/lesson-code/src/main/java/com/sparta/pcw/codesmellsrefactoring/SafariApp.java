@@ -6,7 +6,7 @@ import java.util.List;
 public class SafariApp {
     public static void main(String[] args) {
 
-        BaseClass p = new BaseClass("Katie", "King");
+        Person p = new Person("Katie", "King");
         Hunter cathy = new Hunter("Cathy",
                                   "French",
                                   new Weapon(WeaponType.LaserGun, "BlastEmUp"));

@@ -11,7 +11,7 @@ public class Weapon {
         this.brand = brand;
     }
 
-    public String shoot()
+    public String shoot()//should use polymorphism
     {
         String result = weaponType.name() + " - " + brand;
 

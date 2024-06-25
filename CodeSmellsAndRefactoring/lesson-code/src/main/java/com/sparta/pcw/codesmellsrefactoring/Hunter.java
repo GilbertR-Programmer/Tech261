@@ -1,6 +1,6 @@
 package com.sparta.pcw.codesmellsrefactoring;
 
-public class Hunter extends BaseClass {
+public class Hunter extends Person {
     private Weapon weapon;
 
     public Hunter(String firstName, String lastName, Weapon weapon) {
