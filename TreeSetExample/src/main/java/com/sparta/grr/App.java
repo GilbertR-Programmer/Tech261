@@ -8,7 +8,7 @@ public class App {
     public static void main(String[] args) {
         StudentComparator studentComparator = new StudentComparator();
 
-        TreeSet<Student> studentSet = new TreeSet<>(studentComparator);
+        TreeSet<Student> studentSet = new TreeSet<>();
 
         studentSet.add(new Student(91, "Santosh", 85));
         studentSet.add(new Student(31, "Cherry", 71));

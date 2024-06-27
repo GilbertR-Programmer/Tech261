@@ -1,8 +1,9 @@
 package com.sparta.grr;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Student {
+public class Student implements Comparable<Student> {
     private Integer score;
     private Integer id;
     private String name;
@@ -57,5 +58,10 @@ public class Student {
                 ", id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        return getScore() - o.getScore();
     }
 }
