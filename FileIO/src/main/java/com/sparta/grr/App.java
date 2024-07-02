@@ -28,5 +28,15 @@ public class App {
             throw new RuntimeException(e);
         }
 
+//        try {
+//            BufferedReader bufferedReader = new BufferedReader(
+//                    new FileReader("src/main/emplfoyees.csv"));
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//            System.out.println(e.getClass());
+//        } finally {
+//            System.out.println("I always run");
+//        }
+
     }
 }
