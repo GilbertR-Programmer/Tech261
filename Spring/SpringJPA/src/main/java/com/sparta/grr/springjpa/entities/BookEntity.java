@@ -43,4 +43,12 @@ public class BookEntity {
         this.author = author;
     }
 
+    @Override
+    public String toString() {
+        return "BookEntity{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author=" + author +
+                '}';
+    }
 }

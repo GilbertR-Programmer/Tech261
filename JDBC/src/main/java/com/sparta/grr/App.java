@@ -1,22 +1,21 @@
 package com.sparta.grr;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class App {
     //Connection
     //Statements
     //Results
     public static void main(String[] args) {
+        DBQueryer db = new DBQueryer(DBConnector.getConnection());
 
-        String connectionUrl;
+        ResultSet results = db.getFrom("employees");
 
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306","root","root");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        ResultSet rs2 = db.getFrom("customers");
 
+        Printer.printResultsOf(results);
+        Printer.printResultsOf(rs2);
+
+        DBConnector.closeConnection();
     }
 }
