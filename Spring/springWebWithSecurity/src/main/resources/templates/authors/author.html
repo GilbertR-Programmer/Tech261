@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${author.getFullName()}"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+<p th:text="'the author is ' + ${author.getFullName()}"></p>
+<p th:text="'their id is ' + ${author.getId()}"></p>
+
+<a th:href="@{/authors}">Back to Authors</a>
+</body>
+</html>
