@@ -6,10 +6,12 @@
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
 </head>
 <body>
+<p th:text="'Hi ' + ${message} + '!'"></p>
+
 <h1>List of All Authors</h1>
 <ul>
-    <li th:each="author : ${authors}">
-        <a th:href="@{/authors/{id}(id=${author.getId()})}" th:text="${author.getFullName()}"></a>
+    <li th:each="author : ${authors}" th:if="${author.getFullName().startsWith('T')}">
+        <p><a th:href="@{/authors/{id}(id=${author.getId()})}" th:text="${author.getFullName()}"></a></p>
     </li>
 </ul>
 </body>
