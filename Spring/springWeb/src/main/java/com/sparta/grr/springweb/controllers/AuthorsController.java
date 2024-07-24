@@ -1,12 +1,11 @@
 package com.sparta.grr.springweb.controllers;
 
+import com.sparta.grr.springweb.entities.Author;
 import com.sparta.grr.springweb.repositories.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/authors")
@@ -30,4 +29,21 @@ public class AuthorsController {
         model.addAttribute("author", authorRepository.findById(id).orElseThrow());
         return "authors/author";
     }
+
+    @PutMapping("/{id}")
+    public String updateAuthor(@PathVariable Integer id, @RequestBody Author author) {
+        Author updatedAuthor = authorRepository.findById(id)
+                .map(existingAuthor -> {
+                    existingAuthor.setFullName(author.getFullName());
+                    return authorRepository.save(existingAuthor);
+                })
+                .orElseGet(() -> {
+                    author.setId(id);
+                    return authorRepository.save(author);
+                });
+
+        return "redirect:/authors/" + updatedAuthor.getId();
+    }
+
+
 }
