@@ -1,4 +1,4 @@
-package com.sparta.grr.definitions;
+kage com.sparta.grr.definitions;
 
 import java.math.BigDecimal;
 
